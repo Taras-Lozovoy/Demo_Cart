@@ -1,0 +1,26 @@
+.inCartItem_wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(85, 62, 62);
+    border-radius: 10px;
+    background: rgb(16, 56, 71);
+    width: 300px;
+    margin: 10px;
+}
+.inCartItem {
+    margin: 20px;
+    width: 200px;
+}
+.kg {
+    margin: 5px;
+}
+.btnKg {
+    background: rgb(47, 207, 199);
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btnKg:active {
+    background: rgb(44, 134, 78);
+    transform: scale(1.1);
+}

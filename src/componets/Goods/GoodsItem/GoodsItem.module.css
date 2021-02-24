@@ -1,0 +1,35 @@
+.goodsItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid rgb(85, 62, 62);
+    border-radius: 10px;
+    background: rgb(16, 56, 71);
+    width: 150px;
+}
+figure {
+    margin: 0;
+    width: 100px;
+    height: 100px;
+}
+img {
+    width: 100px;
+    height: 100px;
+}
+button {
+    margin: 5px;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+}
+button:active {
+    background: rgb(150, 184, 30);
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+}
