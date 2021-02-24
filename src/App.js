@@ -42,7 +42,7 @@ const App = () => {
           <Redirect to='/goods'/>
           <Nav />
           <Route path='/goods'> <Goods goods={goods} onAddToCart={onAddToCart} /> </Route>
-          <Route path='/cart'> <Cart inCart={inCart} setInCart={setInCart} onRemove={onRemove} /> </Route>
+          <Route path='/cart'> <Cart inCart={inCart} onRemove={onRemove} /> </Route>
       </BrowserRouter>   
     </div>
   );
