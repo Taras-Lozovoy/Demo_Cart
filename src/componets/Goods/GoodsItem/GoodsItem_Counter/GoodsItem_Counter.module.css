@@ -1,0 +1,8 @@
+.counter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.addBtn {
+    width: 100%;
+}

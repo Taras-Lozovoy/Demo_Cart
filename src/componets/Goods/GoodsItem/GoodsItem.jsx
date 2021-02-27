@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './GoodsItem.module.css'
+import GoodsItemCounter from './GoodsItem_Counter/GoodsItem_Counter';
 
 const GoodsItem = ({goods, onAddToCart}) => {
+  
+  // Local state for counter
+  let [counter, setCounter] = useState(false);
+
+  const showCounter = () => {
+    setCounter(true);
+  };
+
+  const hideCounter = () => {
+    setCounter(false);
+  };
 
   return (
     <div className={styles.goodsItem}>
@@ -12,17 +24,22 @@ const GoodsItem = ({goods, onAddToCart}) => {
         {goods.name}
       </span>
       <div>
-        Price - {goods.price}$/kg
+        {goods.price}$/kg
       </div>
 				{goods.discount
 					? <span>(Discount 3kg+)</span>
 					: ''
 				}
-      <div>
-        <button onClick={() => {onAddToCart(goods.id)}}>Add to Cart</button>
-      </div>
+      {!counter 
+        ? <div>
+            <button onClick={() => {showCounter()}}>Get it</button>
+          </div>
+        : <div>
+            <GoodsItemCounter hideCounter={hideCounter} goods={goods} onAddToCart={onAddToCart} />
+          </div>
+      }
     </div>
   );
 };
 
-export default GoodsItem;
+export default GoodsItem;                                       

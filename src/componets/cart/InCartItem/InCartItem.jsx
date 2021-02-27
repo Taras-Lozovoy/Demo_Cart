@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './InCartItem.module.css';
 
-const InCartItem = ({cart, onRemove}) => {
-	let [kg, setKg] = useState(1);
+const InCartItem = ({cart, onRemove, onAddToCart}) => {
+	let [kg, setKg] = useState(cart.kg);
 
-	let discountPrice = (cart.price * kg) - (Math.floor(kg / 3) * 5);
-	let price = cart.price * kg;
+	useEffect(() => {
+		onAddToCart(cart.id, kg);
+	}, [kg])
+
+	const decrement = () => {
+		setKg(prevKg => prevKg - 1);
+	};
+	const increment = () => {
+		setKg(prevKg => prevKg + 1);
+	}
 	
 	return (
 		<div className={styles.inCartItem_wrapper}>
@@ -21,17 +29,14 @@ const InCartItem = ({cart, onRemove}) => {
 						: ''
 					}    
 				<div>
-					{ kg>1 ? <button className={styles.btnKg} onClick={() => {setKg(prevKg => prevKg - 1)}}>&lt;</button> : '' }
+					{ kg>1 ? <button className={styles.btnKg} onClick={() => {decrement()}}>&lt;</button> : '' }
 					<span className={styles.kg}>
 						{kg} kg
 					</span>
-					<button className={styles.btnKg} onClick={() => {setKg(prevKg => prevKg + 1)}}>&gt;</button>
+					<button className={styles.btnKg} onClick={() => {increment()}}>&gt;</button>
 				</div>
-				<div >
-					Price = { kg >= 3 && cart.discount 
-								? discountPrice
-								: price
-							}$ 
+				<div>
+					Price = {cart.countedPrice} $ 
 				</div>
 			</div>
 			<div>
